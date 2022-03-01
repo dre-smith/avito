@@ -32,7 +32,13 @@ const routes = [
     component: ThankYouView,
   },
   {
-    path: "/our-coffee/item",
+    name: "coffee",
+    path: "/our-coffee/:id",
+    component: GoodsItemView,
+  },
+  {
+    name: "goods",
+    path: "/for-your-pleasure/:id",
     component: GoodsItemView,
   },
 ];

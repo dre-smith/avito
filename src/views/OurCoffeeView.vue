@@ -89,20 +89,21 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
 
+import { navigate } from "@/mixins/navigate";
+
 export default {
   components: {
     NavBarComponent,
     ProductCard,
+  },
+  data() {
+    return { name: "coffee" };
   },
   computed: {
     coffee() {
       return this.$store.getters["getCoffee"];
     },
   },
-  methods: {
-    navigate(id) {
-      console.log(id);
-    },
-  },
+  mixins: [navigate],
 };
 </script>
