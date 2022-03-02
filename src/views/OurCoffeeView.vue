@@ -105,5 +105,12 @@ export default {
     },
   },
   mixins: [navigate],
+  mounted() {
+    fetch("http://localhost:3000/coffee")
+      .then((response) => response.json())
+      .then((data) => {
+        this.$store.dispatch("setCoffeeData", data);
+      });
+  },
 };
 </script>
