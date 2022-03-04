@@ -52,7 +52,7 @@
                 type="text"
                 placeholder="start typing here..."
                 class="shop__search-input"
-                v-model="searchValue"
+                @input="onSearch($event)"
               />
             </form>
           </div>
@@ -97,6 +97,7 @@ import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
 
 import { navigate } from "@/mixins/navigate";
+import { debounce } from "debounce";
 
 export default {
   components: {
@@ -128,8 +129,15 @@ export default {
       });
   },
   methods: {
+    onSearch: debounce(function(event) {
+      this.onSort(event.target.value);
+    }, 500),
     onSort(value) {
-      this.$store.dispatch("setSortValue", value);
+      fetch(`http://localhost:3000/coffee?q=${value}`)
+        .then((response) => response.json())
+        .then((data) => {
+          this.$store.dispatch("setCoffeeData", data);
+        });
     },
   },
 };
