@@ -58,7 +58,9 @@
           </div>
           <div class="col-lg-4">
             <div class="shop__filter">
-              <div class="shop__filter-label">Or filter</div>
+              <div class="shop__filter-label" @click="onSort('')">
+                Or filter
+              </div>
               <div class="shop__filter-group">
                 <button class="shop__filter-btn" @click="onSort('Brazil')">
                   Brazil
@@ -83,7 +85,6 @@
                 classItem="shop__item"
                 @onNavigate="navigate"
               />
-              <!-- /our-coffee/item -->
             </div>
           </div>
         </div>
@@ -129,7 +130,7 @@ export default {
       });
   },
   methods: {
-    onSearch: debounce(function(event) {
+    onSearch: debounce(function (event) {
       this.onSort(event.target.value);
     }, 500),
     onSort(value) {

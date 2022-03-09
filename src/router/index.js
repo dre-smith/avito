@@ -6,7 +6,7 @@ import OurCoffeeView from "@/views/OurCoffeeView.vue";
 import ForYourPleasureView from "@/views/ForYourPleasureView.vue";
 import ContactUsView from "@/views/ContactUsView.vue";
 import ThankYouView from "@/views/ThankYouView.vue";
-import GoodsItemView from "@/views/GoodsItemView"
+import GoodsItemView from "@/views/GoodsItemView.vue";
 
 Vue.use(VueRouter);
 
